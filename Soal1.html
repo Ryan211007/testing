@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal 1 OOP</title>
+</head>
+<body>
+    <p id="result"></p>
+
+
+    <script>
+        class mobil {
+            constructor(merk, model, tahun) {
+                this.merk = merk;
+                this.model = model;
+                this.tahun = tahun;
+            }
+
+            getinfo() {
+            return`mobil ini adalah ${this.merk} model ${this.model} tahun ${this.tahun}.`;
+         }
+
+        }
+
+        const mobilbaru = new mobil ("Suzuki", "Swift", 2024);
+        document.getElementById('result').textContent = mobilbaru.getinfo();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal 3 OOP</title>
+</head>
+<body>
+    <p id="result"></p>
+
+    <script>
+        class AkunBank {
+            constructor(nama, nomorrekening, saldo = 0) {
+                this.nama = nama;
+                this.nomorrekening = nomorrekening;
+                this.saldo = saldo;
+            }
+
+            setor(jumlah) {
+                if (jumlah > 0) {
+                    this.saldo += jumlah;
+                    this.tampilkan(`Setor: Rp${jumlah}. Saldo saat ini: Rp${this.saldo}.`);
+                } else {
+                    this.tampilkan("Jumlah setor harus lebih besar dari 0.");
+                }
+            }
+
+            tarik(jumlah) {
+                if (jumlah > 0 && jumlah <= this.saldo) {
+                    this.saldo -= jumlah;
+                    this.tampilkan(`Tarik: Rp${jumlah}. Saldo saat ini: Rp${this.saldo}.`);
+                } else if (jumlah > this.saldo) {
+                    this.tampilkan("Saldo tidak cukup untuk melakukan penarikan.");
+                } else {
+                    this.tampilkan("Jumlah tarik harus lebih besar dari 0.");
+                }
+            }
+
+            cekSaldo() {
+                this.tampilkan(`Saldo saat ini: Rp${this.saldo}.`);
+            }
+
+            tampilkan(pesan) {
+                document.getElementById('result').innerHTML += `<p>${pesan}</p>`;
+            }
+        }
+
+        const akunSaya = new AkunBank("Ryan Syailendratama", "1234567890");
+        akunSaya.setor(200000); 
+        akunSaya.tarik(50000);  
+        akunSaya.cekSaldo();    
+        akunSaya.tarik(60000);  
+        akunSaya.cekSaldo();    
+    </script>
+</body>
+</html>

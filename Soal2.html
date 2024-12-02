@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal 2 OOP</title>
+</head>
+<body>
+    <p id="resultl"></p>    
+    <p id="resultk"></p>
+
+
+
+    <script>
+        class persegipanjang {
+            constructor(panjang, lebar) {
+                this.panjang = panjang;
+                this.lebar = lebar;
+            }
+
+            luas(){
+                return this.panjang * this.lebar; 
+            }
+
+            keliling(){
+                return 2 * (this.panjang + this.lebar);
+            }
+        }
+
+        const panjanglebar = new persegipanjang (20, 5)
+        document.getElementById('resultl').textContent = "Luas:" + panjanglebar.luas();
+        document.getElementById('resultk').textContent = "Keliling:" + panjanglebar.keliling();
+
+    </script>
+</body>
+</html>
